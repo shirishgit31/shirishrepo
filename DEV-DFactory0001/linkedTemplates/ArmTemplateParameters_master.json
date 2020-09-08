@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "DEV-DFactory0001"
 		},
+		"LS_AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
 		"LS_BlobStorage_DEV_connectionString": {
 			"value": ""
 		},

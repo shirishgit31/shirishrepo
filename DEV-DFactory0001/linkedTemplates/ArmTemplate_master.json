@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "DEV-DFactory0001"
 		},
+		"LS_AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_AzureSqlDatabase1'"
+		},
 		"LS_BlobStorage_DEV_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_BlobStorage_DEV'"
@@ -45,6 +49,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LS_AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('LS_AzureSqlDatabase1_connectionString')]"
 					},
 					"LS_BlobStorage_DEV_connectionString": {
 						"value": "[parameters('LS_BlobStorage_DEV_connectionString')]"
