@@ -44,15 +44,49 @@
 				"inputs": [
 					{
 						"referenceName": "DS_AzureSqlTable1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": "SalesLT",
+							"tablename": "Customer"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "DelimitedText2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"desti": "SalesLT",
+							"file": "Customer"
+						}
 					}
 				]
+			},
+			{
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DS_AzureSqlTable1",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": "SalesLT",
+							"tablename": "Customer"
+						}
+					},
+					"fieldList": [
+						"structure"
+					]
+				}
 			}
 		],
 		"annotations": []
