@@ -87,6 +87,29 @@
 						"structure"
 					]
 				}
+			},
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get Metadata1').output.structure",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "1",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"annotations": []
