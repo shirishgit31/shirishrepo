@@ -7,10 +7,16 @@
 		},
 		"parameters": {
 			"schema": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "dbo"
 			},
-			"tablename": {
-				"type": "string"
+			"tableName1": {
+				"type": "string",
+				"defaultValue": "data_source_table"
+			},
+			"table2": {
+				"type": "string",
+				"defaultValue": "watermarktable"
 			}
 		},
 		"annotations": [],
@@ -86,7 +92,7 @@
 				"type": "Expression"
 			},
 			"table": {
-				"value": "@dataset().tablename",
+				"value": "@dataset().tableName1",
 				"type": "Expression"
 			}
 		}
