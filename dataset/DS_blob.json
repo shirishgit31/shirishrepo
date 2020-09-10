@@ -2,20 +2,20 @@
 	"name": "DS_blob",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_BlobStorage_DEV",
+			"referenceName": "LS_DataLakeStorage_DEV",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
+				"type": "AzureBlobFSLocation",
 				"fileName": {
 					"value": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
 					"type": "Expression"
 				},
 				"folderPath": "incrementalcopy",
-				"container": "dest"
+				"fileSystem": "destination"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

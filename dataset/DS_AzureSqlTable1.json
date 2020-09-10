@@ -5,20 +5,6 @@
 			"referenceName": "LS_AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"schema": {
-				"type": "string",
-				"defaultValue": "dbo"
-			},
-			"tableName1": {
-				"type": "string",
-				"defaultValue": "data_source_table"
-			},
-			"table2": {
-				"type": "string",
-				"defaultValue": "watermarktable"
-			}
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -87,14 +73,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().schema",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().tableName1",
-				"type": "Expression"
-			}
+			"schema": "dbo",
+			"table": "watermarktable"
 		}
 	}
 }

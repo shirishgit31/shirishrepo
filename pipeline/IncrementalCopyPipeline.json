@@ -22,12 +22,7 @@
 					},
 					"dataset": {
 						"referenceName": "DS_AzureSqlTable1",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema": "dbo",
-							"tableName1": "data_source_table",
-							"table2": "watermarktable"
-						}
+						"type": "DatasetReference"
 					}
 				}
 			},
@@ -51,16 +46,13 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_AzureSqlTable1",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema": "dbo"
-						}
+						"referenceName": "DS_Water",
+						"type": "DatasetReference"
 					}
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "IncrementalCopyActivity",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -94,7 +86,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -115,11 +107,7 @@
 				"inputs": [
 					{
 						"referenceName": "DS_AzureSqlTable1",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema": "dbo",
-							"tableName1": "data_source_table"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
@@ -134,7 +122,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "IncrementalCopyActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
